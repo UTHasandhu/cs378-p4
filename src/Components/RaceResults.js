@@ -1,18 +1,22 @@
 import React, { useState } from 'react';
 import './RaceResults.css';
+import RaceResultsTable from './RaceResultsTable';
 
 const RaceResults = () => {
   const [year, setYear] = useState(new Date().getFullYear().toString());
   const [category, setCategory] = useState('winners'); // Default to 'winners'
   const [input, setInput] = useState('');
   const [results, setResults] = useState(null);
+  const [showResults, setShowResults] = useState(false); // To control the display of results
 
   const handleCategoryChange = (value) => {
     setCategory(value);
     setInput(''); // Reset input field when category changes
+    setShowResults(false); // Hide results when changing category
   };
 
   const fetchResults = async () => {
+    setShowResults(false); // Reset results display
     let url = `http://ergast.com/api/f1/${year}`;
     if (category === 'drivers') {
       url += `/drivers/${input}/results.json`;
@@ -25,10 +29,11 @@ const RaceResults = () => {
     try {
       const response = await fetch(url);
       const data = await response.json();
-      setResults(JSON.stringify(data, null, 2)); // Displaying raw JSON for now
+      setResults(data.MRData.RaceTable); // Storing the entire RaceTable
+      setShowResults(true); // Show results after fetching
     } catch (error) {
       console.error('Error fetching data:', error);
-      setResults('Error fetching data');
+      setResults(null);
     }
   };
 
@@ -60,7 +65,15 @@ const RaceResults = () => {
 
       <button onClick={fetchResults}>Go</button>
 
-      <pre className="results">{results}</pre>
+      {showResults && (
+        <div className="main-content">
+          {category === 'winners' ? (
+            <pre className="results">{JSON.stringify(results, null, 2)}</pre> // Raw JSON for winners
+          ) : (
+            results && <RaceResultsTable races={results.Races} headerInfo={{ season: results.season, name: results.driverId || results.constructorId, type: category === 'drivers' ? 'Driver' : 'Constructor' }} />
+          )}
+        </div>
+      )}
     </div>
   );
 };
