@@ -1,0 +1,31 @@
+.results-table {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .race-box {
+    border: 1px solid #ccc;
+    margin: 10px;
+    padding: 10px;
+    width: calc(50% - 20px); /* Two boxes per row */
+  }
+  
+  .new-box {
+    width: 100%; /* Full width for every 7th box to reset layout */
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  th {
+    background-color: #f4f4f4;
+  }
+  

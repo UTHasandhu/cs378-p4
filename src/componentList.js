@@ -1,13 +1,14 @@
-// componentList.js
 import React from 'react';
 import logo from './logo.png';
+/* All Components */
+import RaceResults from './Components/RaceResults';
 
 const ComponentList = ({ activeComponent }) => {
   switch (activeComponent) {
     case 'logo':
       return <img src={logo} className="App-logo" alt="logo" />;
     case 'raceResults':
-      return <div>Race Results Component</div>;
+      return <RaceResults />;
     case 'qualifying':
       return <div>Qualifying Component</div>;
     case 'driversChampionship':

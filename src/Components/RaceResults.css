@@ -1,0 +1,46 @@
+.race-results {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .year-select {
+    margin-bottom: 20px;
+    padding: 5px;
+    width: 200px;
+  }
+  
+  .category-buttons {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  .category-buttons button {
+    margin: 5px;
+    padding: 10px;
+    width: 150px;
+    cursor: pointer;
+  }
+  
+  input {
+    margin-bottom: 5px;
+    padding: 5px;
+    width: 200px;
+  }
+  
+  button {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .results {
+    margin-top: 20px;
+    white-space: pre-wrap;
+    background-color: #f4f4f4;
+    padding: 10px;
+    width: 100%;
+    overflow-x: auto;
+  }
+  
