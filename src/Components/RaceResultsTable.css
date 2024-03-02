@@ -28,4 +28,16 @@
   th {
     background-color: #f4f4f4;
   }
+
+  .race-box {
+    /* Styles for race box */
+  }
   
+  /* Ensure the table headers only appear at the top of each box */
+  .race-box:first-child table thead tr {
+    background-color: #f4f4f4;
+  }
+  
+  .race-box:not(:first-child) table thead tr {
+    display: none;
+  }
