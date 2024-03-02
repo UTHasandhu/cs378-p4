@@ -16,15 +16,17 @@
 
 .nav-item {
   padding: 0 10px; /* Spacing between navbar items */
+  padding-top: 15px;
 }
 
 .nav-link {
   color: white; /* Text color for navbar items */
   transition: color 0.2s; /* Smooth transition for hover effect */
 }
-
 .nav-link:hover {
   color: #61dafb; /* Text color on hover */
+  font-size: 1.2em; /* Increase font size */
+  transition: color 0.2s, font-size 0.2s; /* Smooth transition for color and font size */
 }
 
 /* Additional styles to center the navbar content */
