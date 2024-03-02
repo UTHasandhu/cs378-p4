@@ -1,14 +1,13 @@
 .results-table {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    overflow-y: auto; /* Add vertical scroll */
   }
   
   .race-box {
-    border: 1px solid #ccc;
-    margin: 10px;
-    padding: 10px;
-    width: calc(50% - 20px); /* Two boxes per row */
+    margin-bottom: 20px; /* Add space between boxes */
   }
+  
   
   .new-box {
     width: 100%; /* Full width for every 7th box to reset layout */
@@ -28,10 +27,6 @@
   th {
     background-color: #f4f4f4;
   }
-
-  .race-box {
-    /* Styles for race box */
-  }
   
   /* Ensure the table headers only appear at the top of each box */
   .race-box:first-child table thead tr {
@@ -41,3 +36,16 @@
   .race-box:not(:first-child) table thead tr {
     display: none;
   }
+
+  .position-1 {
+    background-color: gold;
+  }
+  
+  .position-2 {
+    background-color: silver;
+  }
+  
+  .position-3 {
+    background-color: #cd7f32;
+  }
+  

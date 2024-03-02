@@ -1,46 +1,31 @@
 .race-results {
     padding: 20px;
+    padding-top: 76px; /* Adjust this value based on the actual navbar height */
     display: flex;
     flex-direction: column;
     align-items: center;
   }
   
-  .year-select {
-    margin-bottom: 20px;
-    padding: 5px;
-    width: 200px;
-  }
-  
-  .category-buttons {
+  .controls-bar {
     display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-  }
-  
-  .category-buttons button {
-    margin: 5px;
-    padding: 10px;
-    width: 150px;
-    cursor: pointer;
-  }
-  
-  input {
-    margin-bottom: 5px;
-    padding: 5px;
-    width: 200px;
-  }
-  
-  button {
-    padding: 10px;
-    cursor: pointer;
-  }
-  
-  .results {
-    margin-top: 20px;
-    white-space: pre-wrap;
-    background-color: #f4f4f4;
-    padding: 10px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
     width: 100%;
-    overflow-x: auto;
+  }
+  
+  .year-select, .category-buttons, .input-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px;
+  }
+  
+  .category-buttons button, .input-wrapper input {
+    margin: 2px; /* Adjusted for minimal space usage */
+    padding: 5px;
+    width: auto;
   }
   

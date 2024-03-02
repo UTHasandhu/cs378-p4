@@ -9,6 +9,8 @@ const RaceResults = () => {
   const [results, setResults] = useState(null);
   const [showResults, setShowResults] = useState(false);
 
+
+
   const handleCategoryChange = (value) => {
     setCategory(value);
     setInput('');
@@ -30,6 +32,7 @@ const RaceResults = () => {
       const response = await fetch(url);
       const data = await response.json();
       setResults(data.MRData.RaceTable);
+      console.log(data.MRData.RaceTable);
       setShowResults(true);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -39,21 +42,21 @@ const RaceResults = () => {
 
   return (
     <div className="race-results">
-      <div className="controls-bar">
-        <select className="year-select" value={year} onChange={e => setYear(e.target.value)}>
+      <div className={`controls-bar`}>
+      <select className={`year-select`} value={year} onChange={e => setYear(e.target.value)}>
           {Array.from({ length: new Date().getFullYear() - 1950 }, (_, i) => 1950 + i).map(year => (
             <option key={year} value={year}>{year}</option>
           ))}
         </select>
 
-        <div className="category-buttons">
+        <div className={`category-buttons`}>
           <button onClick={() => handleCategoryChange('drivers')}>Driver</button>
           <button onClick={() => handleCategoryChange('constructors')}>Constructor</button>
           <button onClick={() => handleCategoryChange('winners')}>Winner</button>
         </div>
 
         {(category === 'drivers' || category === 'constructors') && (
-          <div className="input-wrapper">
+          <div className={`input-wrapper`}>
             <input
               type="text"
               value={input}
@@ -69,13 +72,14 @@ const RaceResults = () => {
 
       {showResults && (
         <div className="main-content">
-          {category === 'winners' ? (
-            <pre className="results">{JSON.stringify(results, null, 2)}</pre>
-          ) : (
-            results && <RaceResultsTable races={results.Races} headerInfo={{ season: results.season, name: results.driverId || results.constructorId, type: category }} />
-          )}
+            {category === 'winners' ? (
+            <pre className="results">{JSON.stringify(results, null, 2)}</pre> // Raw JSON for winners
+            ) : (
+            results && category !== 'winners' && <RaceResultsTable races={results.Races} headerInfo={{ season: results.season, name: results.driverId || results.constructorId, type: category }} />
+            )}
         </div>
-      )}
+        )}
+
     </div>
   );
 };
