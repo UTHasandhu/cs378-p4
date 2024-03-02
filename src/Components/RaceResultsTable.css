@@ -1,4 +1,5 @@
 .results-table {
+    margin-top: 350px; /* Adjust this value based on the actual navbar height */
     display: flex;
     flex-direction: column;
     overflow-y: auto; /* Add vertical scroll */
@@ -16,6 +17,7 @@
   table {
     width: 100%;
     border-collapse: collapse;
+    margin-top: 40px;
   }
   
   th, td {
@@ -33,9 +35,7 @@
     background-color: #f4f4f4;
   }
   
-  .race-box:not(:first-child) table thead tr {
-    display: none;
-  }
+
 
   .position-1 {
     background-color: gold;
