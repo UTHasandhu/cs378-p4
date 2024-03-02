@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './RaceResults.css';
 import RaceResultsTable from './RaceResultsTable';
+import WinnerResultsTable from './WinnerResultsTable'; // Import the new component
 
 const RaceResults = () => {
   const [year, setYear] = useState(new Date().getFullYear().toString());
@@ -73,7 +74,7 @@ const RaceResults = () => {
       {showResults && (
         <div className="main-content">
             {category === 'winners' ? (
-            <pre className="results">{JSON.stringify(results, null, 2)}</pre> // Raw JSON for winners
+            <WinnerResultsTable races={results.Races} headerInfo={results.headerInfo || {}} /> 
             ) : (
             results && category !== 'winners' && <RaceResultsTable races={results.Races} headerInfo={{ season: results.season, name: results.driverId || results.constructorId, type: category }} />
             )}

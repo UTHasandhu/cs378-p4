@@ -1,0 +1,26 @@
+.race-results-table {
+    width: 100%;
+    overflow-x: auto;
+  }
+  
+  .race-results-table table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .race-results-table table, 
+  .race-results-table th, 
+  .race-results-table td {
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  .race-results-table th {
+    background-color: #f4f4f4;
+  }
+  
+  .race-results-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
