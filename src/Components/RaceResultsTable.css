@@ -1,8 +1,12 @@
 .results-table {
-    margin-top: 350px; /* Adjust this value based on the actual navbar height */
+    margin-top: 700px; /* Adjust this value based on the actual navbar height */
     display: flex;
     flex-direction: column;
     overflow-y: auto; /* Add vertical scroll */
+  }
+
+  .header-info {
+    margin-top: 100px;
   }
   
   .race-box {
