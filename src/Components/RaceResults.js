@@ -32,9 +32,19 @@ const RaceResults = () => {
     try {
       const response = await fetch(url);
       const data = await response.json();
-      setResults(data.MRData.RaceTable);
-      console.log(data.MRData.RaceTable);
-      setShowResults(true);
+  
+      if (data.MRData.RaceTable.Races.length === 0) {
+        // No results found, likely invalid input
+        if (category === 'drivers') {
+          alert(`Driver "${input}" not found in year ${year}. Please check the driver's name and try again.`);
+        } else if (category === 'constructors') {
+          alert(`Constructor "${input}" not found in year ${year}. Please check the constructor's name and try again.`);
+        }
+        setResults(null);
+      } else {
+        setResults(data.MRData.RaceTable);
+        setShowResults(true);
+      }
     } catch (error) {
       console.error('Error fetching data:', error);
       setResults(null);
